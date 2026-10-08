@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      - uses: android-actions/setup-android@v3
       - name: Build Project
         run: |
           rm -rf app build.gradle settings.gradle gradle gradlew* .github/workflows/workflowsbuild.yml
@@ -50,7 +50,7 @@ jobs:
             protected void onCreate(Bundle b){
               super.onCreate(b);
               TextView tv=new TextView(this);
-              tv.setText("مكارم الاخلاق - يعمل!");
+              tv.setText("مكارم الاخلاق");
               tv.setTextSize(28);
               setContentView(tv);
             }
